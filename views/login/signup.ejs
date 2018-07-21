@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>-->
 
     <title>LOC8 Signup Form </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,48 +13,36 @@
     <meta name="keywords" content="Client Signup Form " />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Custom Theme files -->
-    <link href="stylesheets/style.css" rel="stylesheets" type="text/stylesheets" media="all" />
+    <link href="/stylesheets/style.css" rel="stylesheets" type="text/stylesheets" media="all" />
     <!-- //Custom Theme files -->
     <!-- web font -->
-    <link href="stylesheets/style?family=Old+Standard+TT:400,400i,700" rel="stylesheet">
-    <link href='stylesheets/style?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <link href="/stylesheets/style?family=Old+Standard+TT:400,400i,700" rel="stylesheet">
+    <link href='/stylesheets/style?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
     <!-- //web font -->
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-        #logo {
-            height: 30%;
-        }
 
-        #signup {
-            height: 30%
-        }
-
-        html, body {
-            height: 50%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <link href="/stylesheets/style.css"/>
 </head>
 <body>
 
-<div id="logo" style="background-color: lightblue;"><img src="/images/logo.png"/></div>
 
 <!-- main -->
 <div class="main main-agileits">
     <h1> LOC8 Client Signup Form</h1>
     <div class="main-agilerow">
         <div class="signup-wthreetop">
-            <h2>Welcome to LOC8</h2>face="Verdana,Arial,Helvetica size="4" color="black"<p>No need to fear, help is near! </p>
+            <font size="20000">Welcome to LOC8</font>
+            <p>No need to fear, help is near! </p>
         </div>
         <div class="contact-wthree">
-            <form action="#" method="post">
+            <form action="/users/signup" method="post">
                 <h4>Please answer the following questions</h4>
                 <div class="form-w3step1">
-                    <input type="text" name="Name" placeholder="Your Name and Surname" required="">
-
+                    <input type="text" name="Name" placeholder="Your Name and Surname" required=""></div>
+                    <div class="form-w3step1"> <input type="text" class="datepicker" $(document).ready(function(){
+                                                      $('.datepicker').datepicker();
+                        });
+                        ">
                 </div>
                 <div class="form-w3step1">
                     <input type="text" name="User Name" placeholder="Mobile Number" required=""></div>
@@ -66,13 +54,24 @@
                 <input type="email" class="email agileits-btm" name="Email" placeholder="Address" required="">
                 </div>
                 <div class="form-w3step1 w3ls-formrow">
-                    <input type="checkbox" id="brand2" value=""> <label for="brand2"><span></span>Medical Aid</label></div>
-                        <div class="form-w3step1 w3ls-formrow">   <input type="text" name="Number" placeholder="Medical Aid Name" required=""></div>
+                    <p>
+                        <label>
+                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <span>Do you have a medical aid</span>
+                        </label>
+                    </p>
+
+                    <div class="form-w3step1 w3ls-formrow">   <input type="text" name="Number" placeholder="Medical Aid Name" required=""></div>
                             <div class="form-w3step1 w3ls-formrow">  <input type="text" class="agileits-btm" name="Your Address" placeholder="Medical Aid Number" required="">
                 </div>
                 <div class="agileits-row2 w3ls-formrow2">
-                    <input type="checkbox" id="brand2" value="">
-                    <label for="brand2"><span></span>I accept the terms of Use</label>
+                   <p>
+                        <label>
+                            <input type="checkbox" class="filled-in" checked="checked" />
+                            <span>I accept the terms of Use</span>
+                        </label>
+                    </p>
+
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">SUBMIT
 
