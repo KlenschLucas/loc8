@@ -29,7 +29,7 @@ const config = require('./config.js');
 //mongodb database
 let mongodbUrl = 'mongodb://' + config.database.username + ':' +
     config.database.password + '@' + config.database.url;
-mongoose.createConnection(mongodbUrl,).
+mongoose.createConnection(mongodbUrl,{ useNewUrlParser: true }).
     then((resolve, reject) => {
           if (resolve) {
             console.log('Database Connected');

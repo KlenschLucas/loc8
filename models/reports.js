@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 // User Schema
-const ReportSchema = mongoose.Schema({
-  type: {
+const UserSchema = mongoose.Schema({
+  email: {
     type: String,
     index:true
   },

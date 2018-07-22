@@ -10,10 +10,10 @@ const User = require('../models/user');
 
 // checks if user is logged in
 const ensureAuthenticated = (req, res, next) => {
-  if(req.isAuthenticated()){
+  if (req.isAuthenticated()) {
     return next();
   } else {
-    req.flash('error_msg','You are not logged in');
+    req.flash('error_msg', 'You are not logged in');
     res.redirect('/users/login');
   }
 };
@@ -25,64 +25,70 @@ router.get('/signup', (req, res) => {
 
 // Login
 router.get('/login', (req, res) => {
-  res.render("login");
+  res.render('login');
 });
-router.get('/', (req, res) => {
+router.get('/', ensureAuthenticated, (req, res) => {
   res.render('login/index');
 });
 
 // Register User
-router.post('/signup', function(req, res){
-  const username = req.body.username;
+router.post('/signup', function(req, res) {
+  const idNumber = req.body.id;
   const password = req.body.password;
   const password2 = req.body.password2;
 
   // Validation
   req.checkBody('username', 'Username is required').notEmpty();
   req.checkBody('password', 'Password is required').notEmpty();
-  req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+  req.checkBody('password2', 'Passwords do not match').
+      equals(req.body.password);
 
   const errors = req.validationErrors();
 
-  if(errors){
-    res.render('register',{
-      errors:errors
+  if (errors) {
+    res.render('login/signup', {
+      errors: errors,
     });
   } else {
     User.getUserById(username, (err, user) => {
-      if(err) throw err;
-      if(!user){
+      if (err) throw err;
+      if (!user) {
         const newUser = new User({
-          id: username,
-          password: password
+          idNumber: idNumber,
+          password: password,
+          name: req.body.name,
+          address: req.body.address,
+          mobile: req.body.mobile,
+          email: req.body.email,
+
         });
 
         User.createUser(newUser, err => {
-          if(err) throw err;
+          if (err) throw err;
         });
 
         req.flash('success_msg', 'You are registered and can now login');
 
         res.redirect('/users/login');
-      }else{
+      } else {
         req.flash('failure_msg', 'Error');
-        res.redirect("/user/register");
+        res.redirect('/users/signup');
       }
-    })
+    });
 
   }
 });
 
-passport.use(new LocalStrategy((username, password, done) => {
-  User.getUserByUsername(username, (err, user) => {
-    if(err) throw err;
-    if(!user){
+passport.use(new LocalStrategy((email, password, done) => {
+  User.getUserByEmail(email, (err, user) => {
+    if (err) throw err;
+    if (!user) {
       return done(null, false, {message: 'Unknown User'});
     }
 
     User.comparePassword(password, user.password, (err, isMatch) => {
-      if(err) throw err;
-      if(isMatch){
+      if (err) throw err;
+      if (isMatch) {
         return done(null, user);
       } else {
         return done(null, false, {message: 'Invalid password'});
@@ -102,24 +108,30 @@ passport.deserializeUser((id, done) => {
 });
 
 router.post('/',
-    passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+    passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/users/login',
+      failureFlash: true,
+    }),
     (req, res) => {
       res.redirect('/');
-    }
+    },
 );
 
 router.post('/login',
-    passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+    passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/users/login',
+      failureFlash: true,
+    }),
     (req, res) => {
       res.redirect('/');
-    }
+    },
 );
 router.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
   res.redirect('/users/login');
 });
-
-
 
 module.exports = router;
