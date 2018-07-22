@@ -12,13 +12,17 @@ const ReportSchema = mongoose.Schema({
       ref: 'User',
     },
   },
-  location:{
-    lat:String,
-    long:String,
+  location: {
+    lat: String,
+    long: String,
   },
-  priority:{
-    type:String,
-  }
+  priority: {
+    type: String,
+  },
+  isResolved: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 let Report = module.exports = mongoose.model('Report', ReportSchema);

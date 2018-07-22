@@ -22,7 +22,13 @@
 </head>
 <body>
 <div id="map"></div>
-<div id="options" style="background-color: lightblue;"><p>Options</p></div>
+<div id="options" style="background-color: lightblue;">
+
+    <p>Options</p>
+    <p>Distance to nearest</p>
+    <input type="button" value="Police station - 1.4km">
+    <input type="button" value="Hospital - 1.4km">
+</div>
 
 <script>
   let map;
@@ -43,11 +49,12 @@
     let allHospitalData = (hData.data);
 
     allPoliceData.forEach(data => {
+      getDistance(latD,longD,data[11], data[10]);
       setMarker(data[8], data[11], data[10], 1);
     });
 
-     allHospitalData.forEach(data => {
-       setMarker(data[9], data[24][1], data[24][2], 2);
+    allHospitalData.forEach(data => {
+      setMarker(data[9], data[24][1], data[24][2], 2);
     });
   }
 
@@ -56,7 +63,7 @@
     let latlong = <%- JSON.stringify(coords) %>;
     let lat = JSON.parse(latlong).lat;
     let long = JSON.parse(latlong).long;
-    createMap(lat,long);
+    createMap(lat, long);
 
   }
 
@@ -77,6 +84,30 @@
       title: title,
       animation: google.maps.Animation.DROP
     });
+  }
+
+  function getDistance(latO,longO,latD,longD) {
+    // $.ajax({
+    //   type:'post',
+    //   url: 'your url',
+    //   headers: {
+    //     'api-key':'CSDP-001',
+    //     'accept':'application/json'
+    //   },
+    //   data: form_data,
+    //
+    //   success:function(data){
+    //   }
+    // });
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        // document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", ('https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins='+latO+',' +longO + '&destinations=' + latD + ','+ longD+'&key=AIzaSyBUcBI3f1c41jwgAsmtWJ41xXPQlCvaAX8'), true);
+    xhttp.send();
+     console.log(xhttp.responseText);
   }
 
   // When the user accepts location data then recenter the map at the current location
