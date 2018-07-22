@@ -1,0 +1,21 @@
+--2018-07-22 13:13:14--  https://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e=download
+Resolving doc-0s-2s-docs.googleusercontent.com (doc-0s-2s-docs.googleusercontent.com)... 216.58.223.1, 2c0f:fb50:4002:802::2001
+Connecting to doc-0s-2s-docs.googleusercontent.com (doc-0s-2s-docs.googleusercontent.com)|216.58.223.1|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://docs.google.com/nonceSigner?nonce=dmj9mtqie7gka&continue=https://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e%3Ddownload&hash=lgkaik4h3e5gfk88bv7n4jsqcl0h8rfm [following]
+--2018-07-22 13:13:15--  https://docs.google.com/nonceSigner?nonce=dmj9mtqie7gka&continue=https://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e%3Ddownload&hash=lgkaik4h3e5gfk88bv7n4jsqcl0h8rfm
+Resolving docs.google.com (docs.google.com)... 216.58.223.14, 2c0f:fb50:4002:802::200e
+Connecting to docs.google.com (docs.google.com)|216.58.223.14|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&continue=https://docs.google.com/nonceSigner?nonce%3Ddmj9mtqie7gka%26continue%3Dhttps://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e%253Ddownload%26hash%3Dlgkaik4h3e5gfk88bv7n4jsqcl0h8rfm&followup=https://docs.google.com/nonceSigner?nonce%3Ddmj9mtqie7gka%26continue%3Dhttps://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e%253Ddownload%26hash%3Dlgkaik4h3e5gfk88bv7n4jsqcl0h8rfm&ltmpl=homepage [following]
+--2018-07-22 13:13:16--  https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&continue=https://docs.google.com/nonceSigner?nonce%3Ddmj9mtqie7gka%26continue%3Dhttps://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e%253Ddownload%26hash%3Dlgkaik4h3e5gfk88bv7n4jsqcl0h8rfm&followup=https://docs.google.com/nonceSigner?nonce%3Ddmj9mtqie7gka%26continue%3Dhttps://doc-0s-2s-docs.googleusercontent.com/docs/securesc/5coj6mcte343ie8uad17t1vdpbu2gso0/e9v34camq8afs7rbu10d7dd9rt0c18a9/1532167200000/11442708984680358262/11442708984680358262/1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e%253Ddownload%26hash%3Dlgkaik4h3e5gfk88bv7n4jsqcl0h8rfm&ltmpl=homepage
+Resolving accounts.google.com (accounts.google.com)... 216.58.223.13, 2c0f:fb50:4002:802::200d
+Connecting to accounts.google.com (accounts.google.com)|216.58.223.13|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e=download’
+
+1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e=download             [<=>                                                                                                                   ]       0  --.-KB/s               1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e=download             [ <=>                                                                                                                  ]  46.73K   229KB/s               1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e=download             [  <=>                                                                                                                 ]  58.59K   267KB/s    in 0.2s    
+
+2018-07-22 13:13:17 (267 KB/s) - ‘1NxkWn2KtdrahGtJbIcTRTXsE_dhL9Bp_?e=download’ saved [59995]
+
