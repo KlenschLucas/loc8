@@ -13,7 +13,7 @@ const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    req.flash('error_msg', 'You are not logged in');
+    // req.flash('error_msg', 'You are not logged in');
     res.redirect('/users/login');
   }
 };
@@ -27,7 +27,7 @@ router.get('/signup', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login');
 });
-router.get('/', ensureAuthenticated, (req, res) => {
+router.get('/', (req, res) => {
   res.render('login/index');
 });
 
