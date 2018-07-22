@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <title>Loc8</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <a class="waves-effect waves-light btn-large">Button</a>
+    <style>
+        #logo {
+            height: 70%;
+        }
 
+        #signup {
+            height: 30%
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
     <link type="text/css" href="/public/stylesheets/bootstrap.min.css"/>
 </head>
 <body>
@@ -18,7 +26,8 @@
 <div id="logo" style="background-color: lightblue;"><img src="/images/logo.png" class="img-responsive"/></div>
 <div id="signup">
     <form>
-      ><br><br><input type="submit" name="Submit"
+        <label>Email: <input required type="email" class="" name="email"></label><br><br>
+        <label>Password: <input type="password" name="password"/></label><br><br><input type="submit" name="Submit"
                                                                                         value="Login"
                                                                                         class="btn-lg btn btn-block btn-primary"/>
     </form>
@@ -26,4 +35,3 @@
 
 </body>
 </html>
-<a href="http://SkyGround.co.za/" target="_blank">SkyGround</a>
