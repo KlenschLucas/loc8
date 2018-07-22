@@ -33,6 +33,15 @@ router.get('/hospital', function(req, res, next) {
     hospitalData: hospitalData.data,
   });
 });
+router.get('/police', function(req, res, next) {
+  let policeData = require('../data/policeData');
+
+
+  res.render('police', {
+    policeData: policeData.data,
+  });
+});
+
 
 router.get('/', function(req, res, next) {
   res.render('location');
@@ -42,6 +51,14 @@ router.get('/hospital/:num', function(req, res, next) {
   let data = require('../data/hospitalData').data[num];
 
   res.render('hospital-data',{
+    data:data,
+  });
+});
+router.get('/police/:num', function(req, res, next) {
+  let num = req.params.num;
+  let data = require('../data/policeData').data[num];
+
+  res.render('police-data',{
     data:data,
   });
 });
