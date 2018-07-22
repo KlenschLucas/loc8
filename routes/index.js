@@ -54,9 +54,11 @@ router.get('/',function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   let coords = req.body.json;
-  console.log(coords)
   let policeData = require('../data/policeData');
   let hospitalData = require('../data/hospitalData');
+  hospitalData.forEach(data => {
+    
+  });
   res.render('index', {
     policeData: policeData,
     hospitalData: hospitalData,
