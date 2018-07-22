@@ -1,7 +1,68 @@
 <% include header.ejs %>
 
-<p>Nr: <%= data[0]%></p>
-<p>Name: <%= data[10]%></p>
-<p>Hospital<%= data[11]%></p>
+<style>
+  #map {
+    height: 60%;
+  }
+
+</style>
+
+
+<h1>Nr: <%= data[0] %></h1>
+<h1>Name: <%= data[10] %></h1>
+<div id="map"></div>
+<p>Hospital<%= data[11] %></p>
 </body>
+<script>
+
+  let map;
+
+  // Create map based on lat and long. Determine zoom based on if current location is chosen
+  function createMap(lat, long) {
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: lat, lng: long},
+      zoom: 17,
+    });
+    setMarker('Current Position', lat, long, 0);
+
+    setMarker(data[8], data[11], data[10], 1);
+
+  }
+
+  // Center map in Kimberley - Northern Cape Capital
+  function initMap() {
+    let lat = -28.741943;
+    let long = 24.771944;
+    createMap(lat, long);
+
+  }
+
+  function setMarker(title, lat, long, type) {
+    let url = [
+      'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.shareicon.net%2Fdownload%2F2015%2F08%2F28%2F92096_map_512x512.png&f=1',
+      'https://www.shareicon.net/data/512x512/2015/09/21/644202_pin_512x512.png',
+      'https://www.shareicon.net/data/512x512/2016/08/04/806609_medical_512x512.png',
+    ];
+
+    google.maps.Marker({
+      position: new google.maps.LatLng(lat, long),
+      icon: {
+        url: url[type],
+        scaledSize: new google.maps.Size(42, 42)
+      },
+      map: map,
+      title: title,
+      animation: google.maps.Animation.DROP
+    });
+  }
+
+  // When the user accepts location data then recenter the map at the current location
+  navigator.geolocation.getCurrentPosition(function(location) {
+    locationChosen = true;
+    createMap(location.coords.latitude, location.coords.longitude);
+  });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUcBI3f1c41jwgAsmtWJ41xXPQlCvaAX8&callback=initMap"
+        async defer></script>
 </html>

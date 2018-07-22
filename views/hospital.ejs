@@ -62,7 +62,7 @@
             <th style="width:20%;">Rating</th>
         </tr>
         <% hospitalData.forEach((data) => { %>
-        <tr onclick="">
+        <tr class='table-row' onclick="indexClick(<%= data[0]%>)">
             <td><%= data[0]%></td>
             <td><%= data[19]%></td>
             <td><%= data[11]%></td>
@@ -77,6 +77,10 @@
 </div>
 </body>
 <script>
+  function indexClick(num){
+    console.log(num);
+    window.location = "/police/"+num;
+  }
   function myFunction() {
     // Declare variables
     var input, filter, table, tr, td, i;
