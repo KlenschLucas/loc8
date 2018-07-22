@@ -13,7 +13,7 @@ const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    // req.flash('error_msg', 'You are not logged in');
+ //   req.flash('error_msg', 'You are not logged in');
     res.redirect('/users/login');
   }
 };
@@ -71,7 +71,7 @@ router.post('/signup', function(req, res) {
 
         res.redirect('/users/login');
       } else {
-        req.flash('failure_msg', 'Error');
+
         res.redirect('/users/signup');
       }
     });
@@ -130,7 +130,7 @@ router.post('/login',
 );
 router.get('/logout', (req, res) => {
   req.logout();
-  req.flash('success_msg', 'You are logged out');
+
   res.redirect('/users/login');
 });
 
