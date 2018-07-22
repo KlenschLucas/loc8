@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Loc8</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-</head>
+<% include header.ejs %>
+
 <style>
     #myInput {
         background-position: 10px 12px; /* Position the search icon */
@@ -38,7 +33,6 @@
         background-color: #f1f1f1;
     }
 </style>
-<body>
 <div>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Name...">
 
@@ -59,7 +53,7 @@
         <% }); %>
     </table>
 </div>
-</body>
+</>
 <script>
   function myFunction() {
     // Declare variables
