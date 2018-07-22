@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loc8</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        #map {
+            height: 70%;
+        }
+
+        #options {
+            height: 30%
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<div id="options" style="background-color: lightblue;"><p>Options</p></div>
+
+<script>
+  let map;
+  let locationChosen = false;
+
+  // Create map based on lat and long. Determine zoom based on if current location is chosen
+  function createMap(lat, long, init) {
+    let zoom;
+    if (init) {
+      zoom = 13;
+    } else {
+      zoom = 17;
+    }
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: lat, lng: long},
+      zoom: zoom,
+    });
+    if (!init) {
+      setMarker('Current Position', lat, long, 0);
+    }
+    let pData = <%- JSON.stringify(policeData) %>;
+    console.log(pData.data[0][8]);
+    let allData = (pData.data);
+    // console.log(data);
+    allData.forEach(data =>{
+      console.log(data[8]+' '+ data[11]+' '+ data[10]+" 1");
+        setMarker(data[8],data[11],data[10],1);
+
+    });
+    // pData.map(data => {
+    //   setMarker(data[8],data[10],data[11],1);
+    // });
+  }
+
+  // Center map in Kimberley - Northern Cape Capital
+  function initMap() {
+    createMap(-28.728238, 24.749911, true);
+
+  }
+
+  function setMarker(title, lat, long, type) {
+    let url = [
+      'https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.shareicon.net%2Fdownload%2F2015%2F08%2F28%2F92096_map_512x512.png&f=1',
+      'https://www.shareicon.net/data/512x512/2015/09/21/644202_pin_512x512.png',
+      'https://www.shareicon.net/data/512x512/2016/08/04/806609_medical_512x512.png',
+    ];
+
+    switch (type) {
+      case 1:
+        title += ' - Police Station';
+        break;
+    }
+    new google.maps.Marker({
+      position: new google.maps.LatLng(lat, long),
+      icon: {
+        url: url[type],
+        scaledSize: new google.maps.Size(42, 42)
+      },
+      map: map,
+      title: title,
+      animation: google.maps.Animation.DROP
+    });
+  }
+
+  // When the user accepts location data then recenter the map at the current location
+  navigator.geolocation.getCurrentPosition(function(location) {
+    locationChosen = true;
+    createMap(location.coords.latitude, location.coords.longitude, false);
+    console.log('Current Position '+location.coords.latitude+' '+ location.coords.longitude);
+  });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUcBI3f1c41jwgAsmtWJ41xXPQlCvaAX8&callback=initMap"
+        async defer></script>
+</body>
+</html>
