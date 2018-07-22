@@ -72,7 +72,6 @@
   navigator.geolocation.getCurrentPosition(function(location) {
     locationChosen = true;
     createMap(location.coords.latitude, location.coords.longitude);
-    console.log('Current Position ' + location.coords.latitude + ' ' + location.coords.longitude);
   });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUcBI3f1c41jwgAsmtWJ41xXPQlCvaAX8&callback=initMap"
