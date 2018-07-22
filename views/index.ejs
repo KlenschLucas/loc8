@@ -86,19 +86,9 @@
     });
   }
 
+
   function getDistance(latO,longO,latD,longD) {
-    // $.ajax({
-    //   type:'post',
-    //   url: 'your url',
-    //   headers: {
-    //     'api-key':'CSDP-001',
-    //     'accept':'application/json'
-    //   },
-    //   data: form_data,
-    //
-    //   success:function(data){
-    //   }
-    // });
+
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -109,12 +99,6 @@
     xhttp.send();
      console.log(xhttp.responseText);
   }
-
-  // When the user accepts location data then recenter the map at the current location
-  // navigator.geolocation.getCurrentPosition(function(location) {
-  //   createMap(location.coords.latitude, location.coords.longitude);
-  //   console.log('Current Position ' + location.coords.latitude + ' ' + location.coords.longitude);
-  // });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUcBI3f1c41jwgAsmtWJ41xXPQlCvaAX8&callback=initMap"
         async defer></script>

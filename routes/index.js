@@ -25,18 +25,25 @@ router.post('/police:latlong', function(req, res, next) {
     policeClosest: policeClosest,
   });
 });
-router.post('/hospital', function(req, res, next) {
+router.get('/hospital', function(req, res, next) {
   let hospitalData = require('../data/hospitalData');
 
 
-  res.render('index', {
-    policeData: policeData,
-    policeClosest: policeClosest,
+  res.render('hospital', {
+    hospitalData: hospitalData.data,
   });
 });
 
 router.get('/', function(req, res, next) {
   res.render('location');
+});
+router.get('/hospital/:num', function(req, res, next) {
+  let num = req.params.num;
+  let data = require('../data/hospitalData').data[num];
+
+  res.render('hospital-data',{
+    data:data,
+  });
 });
 let distances = [];
 router.post('/', function(req, res, next) {
